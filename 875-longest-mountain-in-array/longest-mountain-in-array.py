@@ -52,8 +52,9 @@ class Solution:
         def longestMountain(self, arr: List[int]) -> int:
             # Find all picks and find the length
             longest_mountain = 0
-
-            for i in range(1, len(arr) - 1):
+            i = 1
+            n = len(arr)
+            while i < n - 1:
                 count = 0
                 if arr[i - 1] < arr[i] and arr[i] > arr[i + 1]:
                     j = i
@@ -63,11 +64,13 @@ class Solution:
                         j -= 1
 
                     j = i
-                    while j < len(arr) - 1 and arr[j] > arr[j + 1]:
+                    while i < n - 1 and arr[i] > arr[i + 1]:
                         count += 1
-                        j += 1
+                        i += 1
 
                     longest_mountain = max(longest_mountain, count)
+                else:
+                    i += 1
 
             return longest_mountain
 
