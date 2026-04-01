@@ -34,12 +34,11 @@ class Solution:
 
     def longestConsecutive(self, nums: List[int]) -> int:
         unique_set = set(nums)
-        unique_list = list(unique_set)
 
 
         max_band_length = 0
 
-        for num in unique_list:
+        for num in unique_set:
             if num - 1 in unique_set:
                 continue
 
