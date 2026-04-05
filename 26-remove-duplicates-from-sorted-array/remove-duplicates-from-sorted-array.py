@@ -39,10 +39,10 @@ class Solution:
 
         for index in range(1,len(nums)):
 
-            if nums[index]!=nums[swap_index-1]:
-                nums[swap_index]=nums[index]
-                swap_index+=1
-                
+            if nums[index] != nums[swap_index-1]:
+                nums[swap_index] = nums[index]
+                swap_index += 1
+
         return swap_index
                     
             
