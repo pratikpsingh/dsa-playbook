@@ -1,15 +1,16 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        count = 0
-        candidate = None
+        m = len(nums) // 2
+
+        uniques = dict()
+
 
         for num in nums:
-            if count == 0:
-                candidate = num
-            
-            if num == candidate:
-                count += 1
+            if num not in uniques:
+                uniques[num] = 1
             else:
-                count -= 1
-        
-        return candidate
+                uniques[num] += 1
+
+        for u in uniques:
+            if uniques[u] > m:
+                return u
